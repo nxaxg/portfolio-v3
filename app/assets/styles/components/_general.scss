@@ -1,0 +1,16 @@
+body{
+	background: $color_white;
+	font-size: 1rem;
+	&.nav-bar-deployed{
+		overflow: hidden;
+	}
+}
+div[data-role="videothumb"]{
+	display: none;
+}
+
+.nav-bar{
+	&.sticker{
+		background: red;
+	}
+}

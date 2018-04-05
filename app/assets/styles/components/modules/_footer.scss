@@ -1,0 +1,80 @@
+.footer-bar {
+	padding: 1rem 0;
+	background: map-get(map-get($colors_map, grey), darker);
+	color: map-get(map-get($colors_map, grey), light);
+	font-size: map-get($text_sizes, small);
+	
+	// basic formatting
+	a {
+		color: $color_white;
+		&:hover {
+			color: map-get(map-get($colors_map, grey), light);
+			text-decoration: underline;
+		}
+	}
+
+	&__link {
+		display: block;
+		font-weight: bold;
+		&:not(:first-child) { margin-top: .5rem; }
+
+		&--inline {
+			display: inline-block;
+			vertical-align: middle;
+			padding: 0 1rem;
+			&:not(:first-child) { margin-top: 0; }
+		}
+	}
+	&__data{
+        margin: 1rem 0 0;
+		padding: 0;
+		list-style-type: none;
+        &-item{
+            margin: 0;
+            margin-bottom: $size_half;
+            font-size: $size_short;
+            line-height: $size_small;
+            a{
+                color: rgba($color_white, 6);
+                &:hover{
+                    color: $color_white;
+                }
+            }
+            &:last-child{
+                margin: 0;
+            }
+            &:before{
+                left: 0;
+                position: relative;
+                margin-right: .5rem;
+            }
+            &--mail{
+                &:before{
+					@include get-icon($icon-markunread);
+                }
+            }
+            &--phone{
+                &:before{
+					@include get-icon($icon-phone);
+                }
+            }
+            &--place{
+                &:before{
+                    @include get-icon($icon-place);
+                }
+            }
+        }
+	}
+	&__social{
+		@include flex-row;
+		.social-link{
+			margin: 0 .25rem 0 0;
+			width: 2.25rem;
+			height: 2.25rem;
+			@include flex-col-center-all;
+			&:hover{
+				text-decoration: none;
+			}
+		}
+	}
+}

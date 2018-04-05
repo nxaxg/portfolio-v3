@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cambio X</title>
+    <link rel="stylesheet" href="dist/css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i|Open+Sans:300,400,600,700,800" rel="stylesheet">    
+</head>
+<body>
+    <header class="header-bar">
+        <div class="top-bar">
+			<div class="container" data-area-name="menu-top">
+				<ul class="top-bar__items" data-mq-change="tablet" data-match-area="menu-top@tablet" data-unmatch-area="menu-top">
+                    <li class="menu-item">
+                        <a href="tomate.html">Ex Tomate framework</a>
+                    </li>
+				</ul>
+			</div>
+		</div>
+        <nav class="nav-bar" data-module="nav-bar">
+            <div class="container">
+                <div class="nav-bar__holder">
+                    <div class="nav-bar__brand">
+                        <a class="app-brand app-brand--inline" title="title" href="index.html">
+                            <img src="https://placehold.it/120x50" class="app-brand__logo" alt="Title"/>
+                        </a>
+                    </div>
+                    <div class="nav-bar__body" data-role="nav-body">
+                        <button class="nav-bar__deploy-button" aria-label="Ver menú" data-role="nav-deployer">
+							<span></span>
+                        </button>
+                        <div class="nav-bar__menu-holder">
+                            <ul class="nav-bar__menu">
+                                <li class="menu-item">
+                                    <a href="index.html" title="title">Index</a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="fixed-mobile.html" title="Title">Fixed mobile</a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="microdata.html" title="Title">Microdata</a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="galeria.html" title="Title">Galerías</a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="iframes.html" title="Title">Iframes</a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="single.html" title="Title">Single</a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="training-grid.html" title="Title">Training ground</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="horizon horizon--main">
+            <div class="slider slider--overlay_min" data-module="slider">
+                <div class="slider__items" data-role="slider-list">
+
+                    <div class="slider__slide" data-role="slider-slide">
+                        <figure class="slider__figure">
+                            <img src="http://unsplash.it/1200/450?gravity=center" class="cover-img" alt="title" />
+                        </figure>
+                        <div class="slider__container">
+                            <div class="container">
+                                <div class="slider__body">
+                                    <h1 class="slider__title">Título de slider</h1>
+                                    <div class="slider__excerpt">
+                                        <p>Caracteres máximo recomendado: 200. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aeneancommodo ligula eget dolor. Aenean massa.</p>
+                                    </div>
+                                    <div class="slider__button">
+                                        <a href="#" class="button button--wide button--main">Call to action</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider__slide" data-role="slider-slide">
+                        <figure class="slider__figure">
+                            <img src="http://unsplash.it/1200/450?random" class="cover-img" alt="title" />
+                        </figure>
+                        <div class="slider__container">
+                            <div class="container">
+                                <div class="slider__body">
+                                    <h1 class="slider__title">Título de slider</h1>
+                                    <div class="slider__excerpt">
+                                        <p>Caracteres máximo recomendado: 200. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aeneancommodo ligula eget dolor. Aenean massa.</p>
+                                    </div>
+                                    <div class="slider__button">
+                                        <a href="#" class="button button--wide button--main">Call to action</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="slider__arrows">
+                    <button class="slider__arrow slider__arrow--prev" data-role="slider-arrow" data-direction="prev"></button>
+                    <button class="slider__arrow slider__arrow--next" data-role="slider-arrow" data-direction="next"></button>
+                </div>
+                <div class="slider__bullets">
+                    <button class="slider__bullet slider__bullet--current" data-role="slider-bullet" data-target="0"></button>
+                    <button class="slider__bullet" data-role="slider-bullet" data-target="1"></button>
+                </div>
+            </div>
+        </section>
+
+        <section class="horizon">
+            <div class="container">
+                <div class="row">
+                    <article class="box gr-6 gr-12@tablet">
+                        <figure class="box__figure">
+                            <img src="https://placehold.it/200x100" alt="" class="elastic-img"/>
+                        </figure>
+                        <div class="box__body">
+                            <h3 class="box__title">I'm a col and a box</h3>
+                            <div class="box__excerpt">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos atque rerum veniam quod minima illo pariatur cupiditate odit aliquid deleniti incidunt repudiandae, eaque laborum, reprehenderit quis, quasi dolore ab ad?</p>
+                            </div>
+                        </div>
+                    </article>
+                    <div class="gr-6 gr-12@tablet">
+                        <article class="box">
+                            <figure class="box__figure">
+                                <img src="https://placehold.it/200x100" alt="" class="elastic-img"/>
+                            </figure>
+                            <div class="box__body">
+                                <h3 class="box__title">I'm a box inside a col</h3>
+                                <div class="box__excerpt">
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos atque rerum veniam quod minima illo pariatur cupiditate odit aliquid deleniti incidunt repudiandae, eaque laborum, reprehenderit quis, quasi dolore ab ad?</p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="horizon container">
+            <div class="container">
+                <h2 class="horizon__title">Posts</h2>
+
+                <div class="row">
+                    <div class="gr-3 gr-6@tablet gr-12@small">
+                        <article class="box box--post">
+                            <figure class="box__figure">
+                                <a href="#" title="Ver más" rel="contents">
+                                    <img src="https://placehold.it/300x200" alt="A picture" class="elastic-img"/>
+                                </a>
+                            </figure>
+                            <div class="box__body">
+                                <p class="box__meta">
+                                    <a href="#" title="Ver más">
+                                        Meta
+                                    </a>
+                                </p>
+                                <h3 class="box__title">
+                                    <a href="#" title="Ver más">
+                                        The title of the box
+                                    </a>
+                                </h3>
+                                <div class="box__excerpt">
+                                    <p>The excerpt of the box lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos distinctio velit aliquid laboriosam quam quasi? Quaerat minus debitis.</p>
+                                </div>
+                                <p class="box__date">Publicado el 28 de Noviembre de 2017</p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="gr-3 gr-6@tablet gr-12@small">
+                        <article class="box box--post">
+                            <figure class="box__figure">
+                                <a href="#" title="Ver más" rel="contents">
+                                    <img src="https://placehold.it/300x200" alt="A picture" class="elastic-img"/>
+                                </a>
+                            </figure>
+                            <div class="box__body">
+                                <h3 class="box__title">
+                                    <a href="#" title="Ver más">
+                                        The title of the box is longer lorem ipsum dolor, sit amet consectetur
+                                    </a>
+                                </h3>
+                                <div class="box__excerpt">
+                                    <p>The excerpt of the box lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos distinctio velit aliquid laboriosam quam quasi? Quaerat minus debitis.</p>
+                                </div>
+                                <p class="box__date">Publicado el 28 de Noviembre de 2017</p>
+                                <div class="box__call">
+                                    <a href="#" class="button button--main" title="Ver más">Ver más</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="gr-3 gr-6@tablet gr-12@small">
+                        <article class="box box--post">
+                            <figure class="box__figure">
+                                <a href="#" title="Ver más" rel="contents">
+                                    <img src="https://placehold.it/300x200" alt="A picture" class="elastic-img"/>
+                                </a>
+                            </figure>
+                            <div class="box__body">
+                                <p class="box__meta">
+                                    <a href="#" title="Ver más">
+                                        Meta
+                                    </a>
+                                </p>
+                                <h3 class="box__title">
+                                    <a href="#" title="Ver más">
+                                        The title of the box is longer lorem ipsum dolor, sit amet consectetur
+                                    </a>
+                                </h3>
+                                <div class="box__excerpt">
+                                    <p>The excerpt of the box lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos distinctio velit aliquid laboriosam quam quasi? Quaerat minus debitis.</p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="gr-3 gr-6@tablet gr-12@small">
+                        <article class="box box--post">
+                            <figure class="box__figure">
+                                <a href="#" title="Ver más" rel="contents">
+                                    <img src="https://placehold.it/300x200" alt="A picture" class="elastic-img"/>
+                                </a>
+                            </figure>
+                            <div class="box__body">
+                                <p class="box__meta">
+                                    <a href="#" title="Ver más">
+                                        Meta
+                                    </a>
+                                </p>
+                                <h3 class="box__title">
+                                    <a href="#" title="Ver más">
+                                        The title of the box is longer and doesn't have an excerpt lorem ipsum dolor, sit amet consectetur
+                                    </a>
+                                </h3>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="horizon">
+            <div class="container">
+                <h2 class="horizon__title">Posts --modify</h2>
+
+                <div class="row">
+                    <div class="gr-3 gr-6@tablet gr-12@small">
+                        <article class="box box--post">
+                            <figure class="box__figure">
+                                <a href="#" title="Ver más" rel="contents">
+                                    <img src="https://placehold.it/300x200" alt="A picture" class="elastic-img"/>
+                                </a>
+                            </figure>
+                            <div class="box__body">
+                                <p class="box__meta">
+                                    <a href="#" title="Ver más">
+                                        Meta
+                                    </a> | 
+                                    <a href="#" title="Ver más">
+                                        Otro meta
+                                    </a>
+                                </p>
+                                <h3 class="box__title box__title--external">
+                                    <a href="#" title="Ver más">
+                                        The title of the box is external
+                                    </a>
+                                </h3>
+                                <div class="box__excerpt box__excerpt--light">
+                                    <p>The excerpt of the box is light lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos distinctio velit aliquid laboriosam quam quasi? Quaerat minus debitis.</p>
+                                </div>
+                                <p class="box__date">Publicado el 28 de Noviembre de 2017</p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="gr-3 gr-6@tablet gr-12@small">
+                        <article class="box box--post">
+                            <figure class="box__figure">
+                                <a href="#" title="Ver más" rel="contents">
+                                    <img src="https://placehold.it/300x200" alt="A picture" class="elastic-img"/>
+                                </a>
+                            </figure>
+                            <div class="box__body">
+                                <p class="box__meta">
+                                    <a href="#" title="Ver más">
+                                        Meta
+                                    </a> | 
+                                    <a href="#" title="Ver más">
+                                        Otro meta
+                                    </a>
+                                </p>
+                                <h3 class="box__title box__title--serif">
+                                    <a href="#" title="Ver más">
+                                        The title of the box is serif
+                                    </a>
+                                </h3>
+                                <div class="box__excerpt box__excerpt--serif">
+                                    <p>The excerpt of the box is serif lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos distinctio velit aliquid laboriosam quam quasi? Quaerat minus debitis.</p>
+                                </div>
+                                <p class="box__date">Publicado el 28 de Noviembre de 2017</p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="gr-3 gr-6@tablet gr-12@small">
+                        <article class="box box--post">
+                            <div class="box__body box__body--shadow">
+                                <p class="box__meta">
+                                    <a href="#" title="Ver más">
+                                        Meta
+                                    </a> | 
+                                    <a href="#" title="Ver más">
+                                        Otro meta
+                                    </a>
+                                </p>
+                                <h3 class="box__title box__title--big">
+                                    <a href="#" title="Ver más">
+                                        The title of the box is bigger here
+                                    </a>
+                                </h3>
+                                <p class="box__date box__date--icon">Publicado el 28 de Noviembre de 2017</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="horizon">
+            <div class="container">
+                <h2 class="horizon__title">Posts horizontal</h2>
+
+                <div class="row">
+                    <div class="gr-6 gr-12@tablet">
+                        <article class="box box--post_horizontal">
+                            <figure class="box__figure">
+                                <a href="#" title="Ver más" rel="contents">
+                                    <img src="https://placehold.it/300x200" alt="A picture" class="elastic-img"/>
+                                </a>
+                            </figure>
+                            <div class="box__body">
+                                <p class="box__meta">
+                                    <a href="#" title="Ver más">
+                                        Meta
+                                    </a> | 
+                                    <a href="#" title="Ver más">
+                                        Otro meta
+                                    </a>
+                                </p>
+                                <h3 class="box__title box__title--external">
+                                    <a href="#" title="Ver más">
+                                        The title of the box is external
+                                    </a>
+                                </h3>
+                                <div class="box__excerpt box__excerpt--light">
+                                    <p>The excerpt of the box is light lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos distinctio velit aliquid laboriosam quam quasi?</p>
+                                </div>
+                                <p class="box__date">Publicado el 28 de Noviembre de 2017</p>
+                            </div>
+                        </article>
+                        <article class="box box--post_horizontal">
+                            <figure class="box__figure">
+                                <a href="#" title="Ver más" rel="contents">
+                                    <img src="https://placehold.it/300x150" alt="A picture" class="elastic-img"/>
+                                </a>
+                            </figure>
+                            <div class="box__body box__body--middle">
+                                <p class="box__meta">
+                                    <a href="#" title="Ver más">
+                                        Meta
+                                    </a> | 
+                                    <a href="#" title="Ver más">
+                                        Otro meta
+                                    </a>
+                                </p>
+                                <h3 class="box__title box__title--big">
+                                    <a href="#" title="Ver más">
+                                        The title of the box is bigger
+                                    </a>
+                                </h3>
+                                <p class="box__date">Publicado el 28 de Noviembre de 2017</p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="gr-6 gr-12@tablet">
+                        <article class="box box--post_horizontal">
+                            <div class="box__body">
+                                <p class="box__meta">
+                                    <a href="#" title="Ver más">
+                                        Meta
+                                    </a> | 
+                                    <a href="#" title="Ver más">
+                                        Otro meta
+                                    </a>
+                                </p>
+                                <h3 class="box__title box__title--external">
+                                    <a href="#" title="Ver más">
+                                        The title of the box is external
+                                    </a>
+                                </h3>
+                                <div class="box__excerpt">
+                                    <p>The excerpt of the box is light lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos distinctio velit aliquid laboriosam quam quasi?</p>
+                                </div>
+                                <p class="box__date">Publicado el 28 de Noviembre de 2017</p>
+                            </div>
+                        </article>
+                        <article class="box box--post_horizontal">
+                            <div class="box__body">
+                                <p class="box__meta">
+                                    <a href="#" title="Ver más">
+                                        Meta
+                                    </a> | 
+                                    <a href="#" title="Ver más">
+                                        Otro meta
+                                    </a>
+                                </p>
+                                <h3 class="box__title">
+                                    <a href="#" title="Ver más">
+                                        The title of the box
+                                    </a>
+                                </h3>
+                                <div class="box__excerpt box__excerpt--serif">
+                                    <p>The excerpt of the box is light lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos distinctio velit aliquid laboriosam quam quasi?</p>
+                                </div>
+                                <p class="box__date">Publicado el 28 de Noviembre de 2017</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="horizon">
+            <div class="container">
+                <h2 class="horizon__title">Posts destacados</h2>
+                <div class="horizon__featuring">
+                    <h3 class="horizon__subtitle">Artículos destacados</h3>
+                    <div class="row">
+                        <div class="gr-7 gr-12@tablet">
+                            <article class="box box--post_featured">
+                                <figure class="box__figure">
+                                    <a href="#" title="Ver más" rel="contents">
+                                        <img src="https://placehold.it/700x300" alt="Título de imagen" title="cover-img"/>
+                                    </a>
+                                </figure>
+                                <div class="box__body">
+                                    <p class="box__meta">
+                                        <a href="#" title="Ver más">
+                                            Meta
+                                        </a>
+                                    </p>
+                                    <h3 class="box__title">
+                                        <a href="#" title="Ver más">
+                                            The title of the box is longer lorem ipsum dolor, sit amet consectetur
+                                        </a>
+                                    </h3>
+                                    <p class="box__date">Publicado el 28 de Noviembre de 2017</p>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="gr-5 gr-12@tablet">
+                            <article class="box box--post_horizontal">
+                                <figure class="box__figure">
+                                    <a href="#" title="Ver más" rel="contents">
+                                        <img src="https://placehold.it/300x180" alt="A picture" class="elastic-img"/>
+                                    </a>
+                                </figure>
+                                <div class="box__body  box__body--middle">
+                                    <p class="box__meta">
+                                        <a href="#" title="Ver más">
+                                            Meta
+                                        </a> | 
+                                        <a href="#" title="Ver más">
+                                            Otro meta
+                                        </a>
+                                    </p>
+                                    <h3 class="box__title box__title--external">
+                                        <a href="#" title="Ver más">
+                                            The title of the box is external
+                                        </a>
+                                    </h3>
+                                    <p class="box__date">Publicado el 28 de Noviembre de 2017</p>
+                                </div>
+                            </article>
+                            <article class="box box--post_horizontal">
+                                <figure class="box__figure">
+                                    <a href="#" title="Ver más" rel="contents">
+                                        <img src="https://placehold.it/300x180" alt="A picture" class="elastic-img"/>
+                                    </a>
+                                </figure>
+                                <div class="box__body box__body--middle">
+                                    <p class="box__meta">
+                                        <a href="#" title="Ver más">
+                                            Meta
+                                        </a> | 
+                                        <a href="#" title="Ver más">
+                                            Otro meta
+                                        </a>
+                                    </p>
+                                    <h3 class="box__title box__title--serif">
+                                        <a href="#" title="Ver más">
+                                            The title of the box is serif
+                                        </a>
+                                    </h3>
+                                    <p class="box__date">Publicado el 28 de Noviembre de 2017</p>
+                                </div>
+                            </article>
+                            <article class="box box--post_horizontal">
+                                <div class="box__body box__body--middle">
+                                    <p class="box__meta">
+                                        <a href="#" title="Ver más">
+                                            Meta
+                                        </a> | 
+                                        <a href="#" title="Ver más">
+                                            Otro meta
+                                        </a>
+                                    </p>
+                                    <h3 class="box__title">
+                                        <a href="#" title="Ver más">
+                                            The title of the box
+                                        </a>
+                                    </h3>
+                                    <div class="box__excerpt box__excerpt--light">
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, perspiciatis quis. Quam quaerat dolores nam tempore delectus.</p>
+                                    </div>
+                                    <p class="box__date">Publicado el 28 de Noviembre de 2017</p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="horizon">
+            <div class="container">
+                <div class="horizon__featuring">
+                    <h3 class="horizon__subtitle">Artículos destacados</h3>
+                    <div class="row">
+                        <div class="gr-7 gr-12@tablet">
+                            <article class="box box--post_featured box--post_overlay--min">
+                                <figure class="box__figure">
+                                    <a href="#" title="Ver más" rel="contents">
+                                        <img src="https://placehold.it/700x400" alt="Título de imagen" title="cover-img"/>
+                                    </a>
+                                </figure>
+                                <div class="box__body">
+                                    <p class="box__meta">
+                                        <a href="#" title="Ver más">
+                                            Meta
+                                        </a>
+                                    </p>
+                                    <h3 class="box__title">
+                                        <a href="#" title="Ver más">
+                                            The title of the box is longer lorem ipsum dolor, sit amet consectetur
+                                        </a>
+                                    </h3>
+                                    <p class="box__date">Publicado el 28 de Noviembre de 2017</p>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="gr-5 gr-12@tablet">
+                            <article class="box box--post_horizontal">
+                                <figure class="box__figure">
+                                    <a href="#" title="Ver más" rel="contents">
+                                        <img src="https://placehold.it/300x180" alt="A picture" class="elastic-img"/>
+                                    </a>
+                                </figure>
+                                <div class="box__body  box__body--middle">
+                                    <p class="box__meta">
+                                        <a href="#" title="Ver más">
+                                            Meta
+                                        </a> | 
+                                        <a href="#" title="Ver más">
+                                            Otro meta
+                                        </a>
+                                    </p>
+                                    <h3 class="box__title box__title--external">
+                                        <a href="#" title="Ver más">
+                                            The title of the box is external
+                                        </a>
+                                    </h3>
+                                    <p class="box__date">Publicado el 28 de Noviembre de 2017</p>
+                                </div>
+                            </article>
+                            <article class="box box--post_horizontal">
+                                <div class="box__body box__body--middle">
+                                    <p class="box__meta">
+                                        <a href="#" title="Ver más">
+                                            Meta
+                                        </a> | 
+                                        <a href="#" title="Ver más">
+                                            Otro meta
+                                        </a>
+                                    </p>
+                                    <h3 class="box__title">
+                                        <a href="#" title="Ver más">
+                                            The title of the box
+                                        </a>
+                                    </h3>
+                                    <div class="box__excerpt box__excerpt--light">
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, perspiciatis quis. Quam quaerat dolores nam tempore delectus.</p>
+                                    </div>
+                                    <p class="box__date">Publicado el 28 de Noviembre de 2017</p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="horizon">
+            <div class="container">
+                <div class="horizon__featuring">
+                    <h3 class="horizon__subtitle">Artículos destacados</h3>
+                    <div class="row">
+                        <div class="gr-7 gr-12@tablet">
+                            <article class="box box--post_featured box--post_overlay--min">
+                                <figure class="box__figure">
+                                    <a href="#" title="Ver más" rel="contents">
+                                        <img src="https://placehold.it/700x400" alt="Título de imagen" title="cover-img"/>
+                                    </a>
+                                </figure>
+                                <div class="box__body">
+                                    <p class="box__meta">
+                                        <a href="#" title="Ver más">
+                                            Meta
+                                        </a>
+                                    </p>
+                                    <h3 class="box__title">
+                                        <a href="#" title="Ver más">
+                                            The title of the box is longer lorem ipsum dolor, sit amet consectetur
+                                        </a>
+                                    </h3>
+                                    <p class="box__date">Publicado el 28 de Noviembre de 2017</p>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="gr-5 gr-12@tablet">
+                            <h4 class="horizon__minititle">This is a row subtitle</h4>
+                            <article class="box box--post_horizontal">
+                                <div class="box__body  box__body--middle">
+                                    <p class="box__meta">
+                                        <a href="#" title="Ver más">
+                                            Meta
+                                        </a> | 
+                                        <a href="#" title="Ver más">
+                                            Otro meta
+                                        </a>
+                                    </p>
+                                    <h3 class="box__title box__title--external">
+                                        <a href="#" title="Ver más">
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, perspiciatis quis.
+                                        </a>
+                                    </h3>
+                                    <p class="box__date">Publicado el 28 de Noviembre de 2017</p>
+                                </div>
+                            </article>
+                            <article class="box box--post_horizontal">
+                                <div class="box__body box__body--middle">
+                                    <p class="box__meta">
+                                        <a href="#" title="Ver más">
+                                            Meta
+                                        </a> | 
+                                        <a href="#" title="Ver más">
+                                            Otro meta
+                                        </a>
+                                    </p>
+                                    <h3 class="box__title">
+                                        <a href="#" title="Ver más">
+                                            The title of the box
+                                        </a>
+                                    </h3>
+                                    <div class="box__excerpt box__excerpt--light">
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, perspiciatis quis. Quam quaerat dolores nam tempore delectus.</p>
+                                    </div>
+                                    <p class="box__date">Publicado el 28 de Noviembre de 2017</p>
+                                </div>
+                            </article>
+                            <article class="box box--post_horizontal">
+                                <div class="box__body box__body--middle">
+                                    <p class="box__meta">
+                                        <a href="#" title="Ver más">
+                                            Meta
+                                        </a> | 
+                                        <a href="#" title="Ver más">
+                                            Otro meta
+                                        </a>
+                                    </p>
+                                    <h3 class="box__title">
+                                        <a href="#" title="Ver más">
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, perspiciatis quis.
+                                        </a>
+                                    </h3>
+                                    <p class="box__date">Publicado el 28 de Noviembre de 2017</p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-bar">
+		<div class="container">
+			<div class="row">
+				<div class="gr-3 gr-6@tablet gr-12@tablet no-padding--vertical gutter@tablet">
+                    <h4 class="footer-bar__title"><a href="#">Title 1</a></h4>
+                    <a href="#" title="title" class="footer-bar__link">Item 1</a>
+                    <a href="#" title="title" class="footer-bar__link">Item 1</a>
+                    <a href="#" title="title" class="footer-bar__link">Item 1</a>
+				</div>
+				<div class="gr-3 gr-6@tablet gr-12@tablet no-padding--vertical gutter@tablet">
+                    <h4 class="footer-bar__title"><a href="#">Title 2</a></h4>
+                    <a href="#" title="title" class="footer-bar__link">Item 2</a>
+                    <a href="#" title="title" class="footer-bar__link">Item 2</a>
+                    <a href="#" title="title" class="footer-bar__link">Item 2</a>
+                </div>
+                <div class="gr-3 gr-6@tablet gr-12@tablet no-padding--vertical gutter@tablet">
+                    <h4 class="footer-bar__title"><a href="#">Title 3</a></h4>
+                    <a href="#" title="title" class="footer-bar__link">Item 3</a>
+                    <a href="#" title="title" class="footer-bar__link">Item 3</a>
+                    <a href="#" title="title" class="footer-bar__link">Item 3</a>
+                </div>
+                <div class="gr-3 gr-6@tablet gr-12@tablet no-padding--vertical gutter@tablet" vocab="http://schema.org/" typeof="LocalBusiness">
+                    <a class="app-brand" href="index.html" title="Home">
+                        <span class="app-brand__name" property="name">KetchApp</span>
+                    </a>
+                    <ul class="footer-bar__data">
+                        <li class="footer-bar__data-item footer-bar__data-item--mail">
+                            <a href="#" title="title" target="_blank" property="email">mail@mail.com</a>
+                        </li>
+                        <li class="footer-bar__data-item footer-bar__data-item--phone">
+                            <a href="#" title="title" target="_blank" property="telephone">+56 2 2478 9012</a>
+                        </li>
+                        <li class="footer-bar__data-item footer-bar__data-item--place">
+                            <a href="#" title="title" target="_blank" property="address">
+                                Av. Providencia 218,
+                                Santiago,
+                                Chile
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="footer-bar__social">
+                        <a href="#" title="title" target="_blank" class="social-link social-link--linkedin"></a>
+                        <a href="#" title="title" target="_blank" class="social-link social-link--twitter"></a>
+                        <a href="#" title="title" target="_blank" class="social-link social-link--facebook"></a>
+                        <a href="#" title="title" target="_blank" class="social-link social-link--instagram"></a>
+                    </p>
+                </div>
+			</div>
+		</div>
+	</footer>
+    <script src="dist/js/main.min.js"></script>
+</body>
+</html>

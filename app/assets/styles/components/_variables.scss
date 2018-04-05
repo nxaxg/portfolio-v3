@@ -1,0 +1,269 @@
+////////////////////////////////////////
+//////////////////////////////////////// Paths
+////////////////////////////////////////
+$fonts_path: '../../assets/fonts/';
+$images_path: '../../dist/img/';
+
+////////////////////////////////////////
+//////////////////////////////////////// Base
+////////////////////////////////////////
+
+
+$base_sans_font_family: 'Open Sans', Helvetica, Arial, sans-serif !default;
+$base_serif_font_family: 'Merriweather', Palatino, serif !default;
+
+////////
+//Font alias
+$ketchup: "material-ketchup";
+$font_sans: $base_sans_font_family;
+$font_serif: $base_serif_font_family;
+
+$base_font_size: 16px !default;
+$base_line_height: 1.5rem !default;
+$base_padding: 1rem !default; // em for it to react to its context
+$base_transition: all 200ms ease !default;
+$base_box_shadow: 0 0 .5rem rgba(0,0,0,.1) !default;
+$base_border_radius: .25rem !default;
+
+////////////////////////////////////////
+//////////////////////////////////////// Typography
+////////////////////////////////////////
+
+$text_sizes: (
+	supermini: 	.3125rem, 			// 5px
+	ten: 		.625rem,	 		// 10px
+	mini: 		.75rem, 	 		// 12px
+	tiny: 		.875rem,			// 14px
+	small: 		.9375rem, 			// 15px
+	regular: 	1rem,				// 16px
+	midreg: 	1.0625rem,	  		// 17px
+	medium: 	1.125rem,	 		// 18px
+	big: 		1.25rem,	 		// 20px
+	tall: 		1.375rem,			// 22px
+	midtall: 	1.5rem,			 	// 24px
+	taller: 	1.625rem,			// 26px
+	tallest: 	1.75rem,			// 28px
+	huge: 		1.875rem,		 	// 30px
+	double: 	2rem, 	        	// 32px
+	main: 		2.25rem, 			// 36px
+	beast: 		2.5rem, 			// 40px
+	icon: 		4rem, 				// 64px
+);
+
+//use
+//map-get($text_sizes, size);
+
+/////////////
+///Shorthands
+////////////
+
+$size_min:			.25rem;		//4px
+$size_half:			.5rem;		//8px
+$size_ten:			.625rem;	//10px
+$size_tiny:			.6875rem;	//11px
+$size_short:		.75rem;		//12px
+$size_small:		.875rem;	//14px
+$size_regular: 		1rem; 		//16px
+$size_midregular: 	1.125rem;   //18px
+$size_twenty: 		1.25rem;   	//20px
+$size_special: 		1.3125rem;	//21px
+$size_common: 		1.375rem;	//22px
+$size_avg: 	  		1.5rem;		//24px
+$size_space: 		1.675rem;   //26px
+$size_medium: 		1.75rem; 	//28px
+$size_double: 		2rem;		//32px
+$size_icon: 		2.25rem;	//36px
+$size_fourty: 		2.5rem; 	//40px
+$size_tall: 		3rem;		//48px
+$size_taller: 		3.5rem;		//56px
+$size_four: 		4rem;		//
+$size_big: 			4.625rem; 	//74px
+$size_logo: 		8.75rem; 	//120px
+$size_tenth: 		10rem;		//160px
+
+$headings_line_height: 1.5;
+$regular_line_height: $base_line_height;
+
+////////////
+////Weights/
+///////////
+$weight_thin: 100;
+$weight_light: 300;
+$weight_regular: 400;
+$weight_medium: 500;
+$weight_semibold: 600;
+$weight_bold: 700;
+$weight_black: 900;
+
+////////////////////////////////////////
+//////////////////////////////////Colors
+////////////////////////////////////////
+
+/*********************************************/
+/*********************************************/
+
+$color_dark:  		  		#333 !default;
+$color_black:  		  		black !default;
+$color_grey_darkest:   		#111 !default;
+$color_grey_darker:   		#333 !default;
+$color_grey_dark:	  		#666 !default;
+$color_grey_regular:  		#999 !default;
+$color_grey_light:	  		#ccc !default;
+$color_grey_lighter:  		#ddd !default;
+$color_grey_lightest: 		#eee !default;
+$color_white:		  		white !default;
+
+$color_main_darker: 		#004085 !default;
+$color_main_dark: 			#0b5eb8 !default;
+$color_main_regular: 		#2685eb !default;
+$color_main_light: 			#5cabff !default;
+$color_main_lighter: 		#8fc5ff !default;
+
+$color_secondary_darker: 	#804000 !default;
+$color_secondary_dark: 		#b35e09 !default;
+$color_secondary_regular: 	#e68422 !default;
+$color_secondary_light: 	#ffac59 !default;
+$color_secondary_lighter: 	#ffc68c !default;
+
+$color_backup_dark: 		#758c00 !default;
+$color_backup_regular: 		#a3bf13 !default;
+$color_backup_light: 		#bfd941 !default;
+
+$color_success_dark: 		#089950 !default;
+$color_success_regular: 	#1fcc75 !default;
+$color_success_light: 		#50e69b !default;
+
+$color_info_dark: 			#078c88 !default;
+$color_info_regular: 		#1dbfba !default;
+$color_info_light: 			#4cd9d4 !default;
+
+$color_warning_dark: 		#bf9900 !default;
+$color_warning_regular: 	#d9b00b !default;
+$color_warning_light: 		#f2c924 !default;
+
+$color_danger_dark: 		#992008 !default;
+$color_danger_regular: 		#cc3c1f !default;
+$color_danger_light: 		#e66950 !default;
+
+
+$colors_map : (
+	grey: (
+		darkest:  	$color_grey_darkest,
+		darker:   	$color_grey_darker,
+		dark: 	  	$color_grey_dark,
+		regular:  	$color_grey_regular,
+		light:    	$color_grey_light,
+		lighter:  	$color_grey_lighter,
+		lightest: 	$color_grey_lightest
+	),
+	main: (
+		darker:   	$color_main_darker,
+		dark: 	  	$color_main_dark,
+		regular:  	$color_main_regular,
+		light: 		$color_main_light,
+		lighter: 	$color_main_lighter
+	),
+	secondary: (
+		darker: 	$color_secondary_darker,
+		dark: 		$color_secondary_dark,
+		regular: 	$color_secondary_regular,
+		light: 		$color_secondary_light,
+		lighter: 	$color_secondary_lighter
+	),
+	backup: (
+		dark: 		$color_backup_dark,
+		regular: 	$color_backup_regular,
+		light: 		$color_backup_light
+	),
+	success: (
+		dark: 		$color_success_dark,
+		regular: 	$color_success_regular,
+		light: 		$color_success_light
+	),
+	info: (
+		dark: 		$color_info_dark,
+		regular: 	$color_info_regular,
+		light: 		$color_info_light
+	),
+	warning: (
+		dark: 		$color_warning_dark,
+		regular: 	$color_warning_regular,
+		light: 		$color_warning_light
+	),
+	danger: (
+		dark: 		$color_danger_dark,
+		regular: 	$color_danger_regular,
+		light: 		$color_danger_light
+	)
+);
+
+// social networks colors
+$color_facebook: 	#3b5998;
+$color_twitter: 	#55acee;
+$color_googleplus: 	#dd4b39;
+$color_linkedin: 	#0077b5;
+$color_youtube: 	#e52d27;
+$color_instagram: 	#405de6;
+$color_shortlink:   $color_secondary_regular;
+
+// especial
+$instagram_gradient: linear-gradient( #400080, transparent), linear-gradient(200deg, #d047d1, #ff0000, #ffff00);
+
+$social_colors_map: (
+	facebook: $color_facebook,
+	twitter: $color_twitter,
+	googleplus: $color_googleplus,
+	linkedin: $color_linkedin,
+	youtube: $color_youtube,
+	instagram: $color_instagram,
+	shortlink: $color_shortlink
+);
+
+////////////////////////////////////////
+//////////////////////////////////////// Breakpoints & sizes
+////////////////////////////////////////
+
+$extra_small: 	20rem !default;  	// ~320px
+$phablet:		30rem !default;		// ~480px
+$small: 		40rem !default;  	// ~640px
+$tablet: 		48rem !default; 	// ~768px
+$medium: 		50rem !default;  	// ~800px
+$midlarge: 		56.25rem !default; 	// ~900px
+$large: 		64rem !default;  	// ~1024px
+$extra_large: 	80rem !default;  	// ~1280px
+$huge: 			90rem !default;  	// ~1440px
+
+$medias_map: (
+	extra-small: $extra_small,
+	phablet: $phablet,
+	small: $small,
+	medium: $medium,
+	midlarge: $midlarge,
+	large: $large,
+	extra-large: $extra_large,
+	huge: $huge
+);
+
+////////////////////////////////////////
+//////////////////////////////////////// UI
+////////////////////////////////////////
+
+$tr_bg: map-get( map-get($colors_map, grey), lightest );
+
+$th_bg: map-get( map-get($colors_map, main), darker );
+$th_color: $color_white;
+$th_font_size: map-get($text_sizes, medium);
+$th_align: left;
+$th_font_weight: normal;
+
+$td_font_size: map-get($text_sizes, small);
+$td_line_height: 1.3;
+$td_color: map-get( map-get($colors_map, grey), dark );
+
+$loading-element:url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%20width%3D%2235%22%20height%3D%2235%22%20fill%3D%22%23ffffff%22%3E%0A%20%20%3Cpath%20opacity%3D%22.25%22%20d%3D%22M16%200%20A16%2016%200%200%200%2016%2032%20A16%2016%200%200%200%2016%200%20M16%204%20A12%2012%200%200%201%2016%2028%20A12%2012%200%200%201%2016%204%22/%3E%0A%20%20%3Cpath%20d%3D%22M16%200%20A16%2016%200%200%201%2032%2016%20L28%2016%20A12%2012%200%200%200%2016%204z%22%3E%0A%20%20%20%20%3CanimateTransform%20attributeName%3D%22transform%22%20type%3D%22rotate%22%20from%3D%220%2016%2016%22%20to%3D%22360%2016%2016%22%20dur%3D%220.8s%22%20repeatCount%3D%22indefinite%22%20/%3E%0A%20%20%3C/path%3E%0A%3C/svg%3E%0A%0A) $color_secondary_regular center center no-repeat;
+
+//loading article manquecura
+$loading-article: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%20width%3D%2240%22%20height%3D%2240%22%20fill%3D%22%230F2F54%22%3E%0A%20%20%3Cpath%20opacity%3D%22.25%22%20d%3D%22M16%200%20A16%2016%200%200%200%2016%2032%20A16%2016%200%200%200%2016%200%20M16%204%20A12%2012%200%200%201%2016%2028%20A12%2012%200%200%201%2016%204%22/%3E%0A%20%20%3Cpath%20d%3D%22M16%200%20A16%2016%200%200%201%2032%2016%20L28%2016%20A12%2012%200%200%200%2016%204z%22%3E%0A%20%20%20%20%3CanimateTransform%20attributeName%3D%22transform%22%20type%3D%22rotate%22%20from%3D%220%2016%2016%22%20to%3D%22360%2016%2016%22%20dur%3D%220.8s%22%20repeatCount%3D%22indefinite%22%20/%3E%0A%20%20%3C/path%3E%0A%3C/svg%3E%0A%0A) $color_white center center no-repeat;
+
+//loading article pumahue
+// $loading-article: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%20width%3D%2240%22%20height%3D%2240%22%20fill%3D%22%2300665D%22%3E%0A%20%20%3Cpath%20opacity%3D%22.25%22%20d%3D%22M16%200%20A16%2016%200%200%200%2016%2032%20A16%2016%200%200%200%2016%200%20M16%204%20A12%2012%200%200%201%2016%2028%20A12%2012%200%200%201%2016%204%22/%3E%0A%20%20%3Cpath%20d%3D%22M16%200%20A16%2016%200%200%201%2032%2016%20L28%2016%20A12%2012%200%200%200%2016%204z%22%3E%0A%20%20%20%20%3CanimateTransform%20attributeName%3D%22transform%22%20type%3D%22rotate%22%20from%3D%220%2016%2016%22%20to%3D%22360%2016%2016%22%20dur%3D%220.8s%22%20repeatCount%3D%22indefinite%22%20/%3E%0A%20%20%3C/path%3E%0A%3C/svg%3E%0A%0A) $color_white center center no-repeat;

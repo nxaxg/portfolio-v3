@@ -1,0 +1,411 @@
+//////////////////////////////////
+////////////////////////////////// Abstracts
+//////////////////////////////////
+%arrow-item {
+	@include reset-appearance;
+	@extend %icon-font-family;
+	pointer-events: auto;
+	display: block;
+	padding: 1rem 0;
+	background: transparent;
+
+	font-size: 2.5rem;
+	line-height: 1;
+	color: map-get(map-get($colors_map, grey), regular);
+	text-align: center;
+
+	transition: $base_transition;
+
+	&:hover {
+		color: map-get(map-get($colors_map, grey), lighter);
+		background: map-get(map-get($colors_map, main), regular);
+	}
+
+	&:active {
+		background: map-get(map-get($colors_map, main), dark);
+	}
+}
+
+%bullet-item {
+	@include reset-appearance;
+	display: inline-block;
+	vertical-align: middle;
+	width: map-get($text_sizes, medium);
+	height: map-get($text_sizes, medium);
+	border-radius: map-get($text_sizes, medium);
+	border: 1px solid map-get(map-get($colors_map, grey), regular);
+	background: map-get(map-get($colors_map, grey), regular);
+	transition: $base_transition;
+
+	&:hover {
+		border-color: $color_white;
+		background: map-get(map-get($colors_map, grey), dark);
+	}
+}
+
+//////////////////////////////////
+////////////////////////////////// Slider
+//////////////////////////////////
+.slider {
+	display: block;
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+	
+	// Elements
+	&__items {
+		padding: 0;
+		margin: 0;
+		overflow: hidden;
+	}
+
+	&__slide {
+		display: block;
+		position: relative;
+		overflow: hidden;
+		margin: 0;
+		padding: 0;
+	}
+
+	&__arrows {
+		display: block;
+		width: 100%;
+		overflow: hidden;
+		position: absolute;
+		top: 50%;
+		left: 0;
+		right: 0;
+		pointer-events: none;
+		-webkit-transform: translateY(-50%);
+		-moz-transform: translateY(-50%);
+		-ms-transform: translateY(-50%);
+		transform: translateY(-50%);
+	}
+
+	&__arrow {
+		@extend %arrow-item;
+		color: $color_white;
+		// modifiers
+		&--prev {
+			float: left;
+			&::before { content: $icon-chevron_left; }
+		}
+
+		&--next {
+			float: right;
+			&::before { content: $icon-chevron_right; }
+		}
+	}
+
+	&__bullets {
+		display: block;
+		width: 100%;
+		padding: 1rem 0;
+		line-height: 1;
+	}
+
+	&__bullet {
+		@extend %bullet-item;
+
+		&--current {
+			border-color: $color_white;
+			background: map-get(map-get($colors_map, main), regular);
+
+			&:hover {
+				background: map-get(map-get($colors_map, main), dark);
+			}
+		}
+	}
+
+	&__thumbnails {
+		display: flex;
+		width: 100%;
+		padding: 1rem 0;
+		line-height: 1;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	&__thumbnail {
+		@include reset-appearance;
+		display: inline-block;
+		vertical-align: middle;
+		flex: 1;
+		max-width: 25%;
+		min-width: 15%;
+		margin: 0 .25rem;
+		opacity: .7;
+		border: 1px solid $color_white;
+		transition: $base_transition;
+
+		img { @extend .cover-img; }
+
+		&:hover {
+			opacity: 1;
+		}
+
+		&--current {
+			opacity: 1;
+			border-color: map-get(map-get($colors_map, main), regular);
+			&:hover { border-color: map-get(map-get($colors_map, main), dark); }
+		}
+
+		@include media( medium-down ){
+			max-width: 33%;
+			min-width: 33%;
+		}
+	}
+
+	&__caption{
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		background: rgba($color_black, .5);
+		color: $color_white;
+		padding: 1rem;
+		font-size: $size_small;
+		line-height: $size_midregular;
+	}
+
+	//Modifiers
+	&--overlay{
+		position: relative;
+		.container{
+            position: relative;
+            height: 100%;
+            padding: 0;
+        }
+		.slider{
+			&__figure{
+				margin: 0;
+				position: relative;
+				img{
+                    opacity: .6;
+                    z-index: 2;
+                    @include media (midlarge-down){
+						width: 150%;
+						right: 25%;
+                    }
+                    @include media (tablet-down){
+                        width: 200%;
+                    }
+                    @include media (small-down){
+                        width: 300%;
+                    }
+                    @include media (phablet-down){
+                        width: 350%;
+                    }
+                }
+			}
+			&__container{
+                position: absolute;
+				top: 0;
+				left: 0;
+                width: 100%;
+				height: 100%;
+				background: rgba($color_main_darker, .25);
+            }
+            &__body{
+                position: relative;
+				background: transparent;
+                padding: 2rem;
+                top: 0;
+                left: 0;
+                height: 100%;
+				width: 100%;
+				color: $color_white;
+				@include flex-col-center-start;
+			}
+			&__title{
+				font-size: 2rem;
+				line-height: 2.125rem;
+				text-transform: uppercase;
+				margin: 0 0 .75rem;
+			}
+			&__excerpt{
+				font-size: 1rem;
+				line-height: 1.25rem;
+				margin: 0 0 1rem;
+			}
+			&__button{
+				.button{
+					margin: 0;
+					padding: .75rem 1rem;
+				}
+			}
+			&__bullets{
+				position: absolute;
+				height: auto;
+				width: 100%;
+				text-align: center;
+				bottom: 0;
+			}
+			&__arrow{
+				color: $color_white;
+				font-size: 2rem;
+				padding: .5rem 0;
+			}
+		}
+	}
+	&--overlay_min{
+		@extend .slider--overlay;
+		position: relative;
+		.slider{
+			&__container{
+				background: rgba($color_black, .25);
+            }
+            &__body{
+                padding: 0 1rem;
+                height: 100%;
+				width: auto;
+				max-width: 40%;
+				color: $color_white;
+				@include flex-col-center-start;
+				@include media (extra-large-down){
+					max-width: 50%;
+					padding: 0 2.5rem;
+				}
+				@include media (tablet-down){
+					max-width: 100%;
+					padding: 0 2.5rem;
+				}
+			}
+		}
+	}
+	&--thumbs{
+		.slider{
+			&__arrows{
+				top: 40%;
+			}
+			&__thumbnails{
+				padding: .5rem 0 0;
+			}
+			&__thumbnail{
+				margin: 0 .25rem 0 0;
+				&:last-child{
+					margin: 0;
+				}
+			}
+		}
+	}
+}
+
+//////////////////////////////////
+////////////////////////////////// Carousel
+//////////////////////////////////
+.carousel {
+	display: block;
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+	padding: 0 3rem;
+
+	// Elements
+	
+	&__items-holder {
+		display: block;
+		padding: 0;
+		margin: 0;
+		overflow: hidden;
+	}
+
+	&__items {
+		display: flex;
+		padding: 0;
+		margin: 0;
+	}
+
+	&__slide {
+		display: block;
+		overflow: hidden;
+		margin: 0;
+		padding: 0 .5rem;
+		opacity: 1;
+	}
+
+	&__arrows {
+		display: block;
+		width: 100%;
+		overflow: hidden;
+		position: absolute;
+		top: 50%;
+		left: 0;
+		right: 0;
+		pointer-events: none;
+		-webkit-transform: translateY(-50%);
+		-moz-transform: translateY(-50%);
+		-ms-transform: translateY(-50%);
+		transform: translateY(-50%);
+	}
+
+	&__arrow {
+		@extend %arrow-item;
+
+		// modifiers
+		&--prev {
+			float: left;
+			&::before { content: "\e314"; }
+		}
+
+		&--next {
+			float: right;
+			&::before { content: "\e315"; }
+		}
+	}
+	&--gallery{
+		.carousel{
+			&__slide{
+				cursor: pointer;
+				position: relative;
+				padding: 0;
+				margin: 0 .5rem 0 0;
+				&:last-child{
+					margin: 0;
+				}
+			}
+			&__figure{
+				margin: 0;
+			}
+			&__body{
+				position: absolute;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				color: $color_white;
+				display: none;
+				overflow: hidden;
+				padding: 2rem;
+				@include transitional;
+			}
+			&__title{
+				margin: .5rem 0;
+				font-size: 1rem;
+				&:before{
+					@include get-icon($icon-photo_camera);
+					display: block;
+					text-align: center;
+					font-size: 2rem;
+					line-height: 2rem;
+				}
+			}
+			&__slide[data-current="true"],
+			&__slide:hover{
+				.carousel{
+					&__body{
+						@include flex-col-center-all;
+						@include transitional;
+						background: rgba($color_main_regular, .75);
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+

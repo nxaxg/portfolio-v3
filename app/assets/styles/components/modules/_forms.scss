@@ -1,0 +1,426 @@
+.form-control {
+	//////// Elements
+	
+	&__label {
+		display: block;
+		margin-bottom: $base_border_radius;
+	}
+
+	&__field {
+		@include reset-appearance;
+
+		line-height: $base_line_height;
+		color: map-get(map-get($colors_map, grey), darker);
+		font-size: 1rem;
+		display: block;
+		width: 100%;
+		padding: .5em;
+		background: $color_white;
+		border: 1px solid map-get(map-get($colors_map, grey), lighter);
+		border-radius: $base_border_radius;
+		box-shadow: 0;
+		transition: $base_transition;
+		
+		// pseudos
+		@include placeholder {
+			color: map-get(map-get($colors_map, grey), regular);
+		}
+		
+		&:hover, &:focus {
+			border-color: map-get(map-get($colors_map, grey), regular);
+		}
+
+		&:focus {
+			outline: none;
+			border-color: map-get(map-get($colors_map, main), regular);
+			box-shadow: 0 0 1em rgba( map-get(map-get($colors_map, grey), darkest), .1 );
+		}
+
+		&[disabled], &[readonly], &--disabled {
+			pointer-events: none;
+			background: map-get(map-get($colors_map, grey), lightest);
+		}
+
+		// integration with validizr
+		&.invalid-input {
+			border-color: map-get(map-get($colors_map, danger), regular);
+			background-color: rgba(map-get(map-get($colors_map, danger), regular), .04);
+			color: $color_danger_regular;
+		}
+
+		&.valid-input {
+			border-color: map-get(map-get($colors_map, success), regular);
+			background-color: rgba(map-get(map-get($colors_map, success), regular), .04);
+			color: $color_success_regular;
+		}
+
+		// modifiers
+		&--select {
+			@extend .form-control__field;
+			@include remove-select-arrow;
+			cursor: pointer;
+			padding-right: 2rem;
+			background: $color_white url($images_path + '/icons-dark/ic_select.svg') calc(100% - .5em) 50% no-repeat;
+			background-size: map-get($text_sizes, tall);
+			&_chevron{
+				@extend .form-control__field--select;
+				background: $color_white url($images_path + '/icons-dark/ic_chevron_down.svg') calc(100% - .5em) 50% no-repeat;
+			}
+			&_box{
+				@extend .form-control__field--select;
+				//change img
+				background: $color_white url($images_path + '/icons-color/ic_box_down.png') no-repeat scroll 100% 0/auto 100%;
+			}
+			&_icon{
+				@extend .form-control__field;
+				@include remove-select-arrow;
+				cursor: pointer;
+				padding-right: 2rem;
+				background: $color_white $icon-accessible calc(100% - .5em) 50% no-repeat;
+			}
+		}
+
+		&--bg{
+			@extend .form-control__field;
+			border-radius: 0;
+			&.valid-input{
+				background: $color_white url($images_path + '/icons-color/ic_check.svg') calc(100% - .5rem) 50% no-repeat;
+				background-size: map-get($text_sizes, tall);
+			}
+			&.invalid-input{
+				background: $color_white url($images_path + '/icons-color/ic_close.svg') calc(100% - .5rem) 50% no-repeat;
+				background-size: map-get($text_sizes, tall);
+			}
+		}
+	}
+
+	&__range {
+		@include reset-appearance;
+		display: block;
+		width: 100%;
+		margin: 1.75rem 0;
+
+		&:focus { outline: none; }
+
+		@include range-track {
+			width: 100%;
+			background: map-get(map-get($colors_map, grey), regular);
+			height: 2px;
+			border-radius: 2px;
+			transition: $base_transition;
+		}
+
+		@include range-thumb {
+			@include reset-appearance;
+			
+			$diameter: map-get($text_sizes, tall);
+			$radius: ($diameter / 2) * -1;
+
+			display: block;
+			width: $diameter;
+			height: $diameter;
+			background: $color_white;
+			border: 1px solid map-get(map-get($colors_map, grey), regular);
+			border-radius: $diameter;
+			margin-top: calc( #{$radius} + 1px );
+			cursor: pointer;
+			transition: $base_transition;
+		}
+
+		&:hover, &:focus {
+			@include range-track {
+				background: map-get(map-get($colors_map, main), regular);
+			}
+
+			@include range-thumb {
+				border-color: map-get(map-get($colors_map, grey), dark);
+				transform: scale(1) translateZ(0);
+			}
+		}
+	}
+
+	&__group {
+		display: table;
+		width: 100%;
+		vertical-align: middle;
+
+		&__addon {
+			display: block;
+			padding: .5rem 0;
+			line-height: $base_line_height;
+			font-size: map-get($text_sizes, regular);
+			border: 1px solid map-get(map-get($colors_map, grey), lighter);
+			text-align: center;
+
+			&--seamless {
+				border-width: 1px 0 1px 0;
+			}
+
+			&--has-button {
+				padding: 0;
+
+				.button { 
+					margin: -1px 0;
+					padding: .7em;
+				}
+			}
+
+			&:first-child { 
+				border-radius: $base_border_radius 0 0 $base_border_radius;
+				border-right: 0;
+
+				.button { border-radius: $base_border_radius 0 0 $base_border_radius; }
+			}
+			&:last-child { 
+				border-radius: 0 $base_border_radius $base_border_radius 0;
+				border-left: 0;
+
+				.button { border-radius: 0 $base_border_radius $base_border_radius 0; }
+			}
+
+			&:empty { 
+				padding: .5em 0;
+				width: 0;
+			}
+		}
+		
+		&__addon, .form-control__field, .form-control__range {
+			display: table-cell;
+			vertical-align: middle;
+		}
+	
+
+		// modifier by context, maybe anti BEM
+		.form-control__field {
+			border-radius: 0;
+			&:first-child { border-radius: $base_border_radius 0 0 $base_border_radius; }
+			&:last-child { border-radius: 0 $base_border_radius $base_border_radius 0; }
+		}
+
+		// modifiers
+		&--seamless {
+			.form-control__group__addon {
+				border: none;
+
+				&:first-child { text-align: right; }
+				&:last-child { text-align: left; } 
+			}
+		}
+	}
+
+	&__text{
+		margin: .25rem 0 0;
+		font-size: .875rem;
+		color: $color_grey_regular;
+	}
+
+	&__file{
+		@extend .form-control__field;
+		position: relative;
+		overflow: hidden;
+		cursor: pointer;
+		background: #fff url($images_path + '/icons-dark/ic_attach_file.svg') calc(100% - .25rem) 50% no-repeat;	
+		&__text{
+			display: block;
+			font-size: 1rem;
+			color: inherit;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+		&__input{
+			opacity: 0;
+			position: absolute;
+			top: 0;
+			left: 0;
+			cursor: pointer;
+			z-index: 1;
+			width: 100%; height: 100%;
+		}
+		&--btnlike{
+			@extend .form-control__file;
+			background: $color_main_regular;
+			border-color: $color_main_regular;
+			color: white !important;
+			.form-control{
+				&__file{
+					&__text{
+						padding-left: 1.5rem;
+					}
+				}
+			}
+			&:before{
+				@include get-icon($icon-insert_drive_file);
+				position: absolute;
+			}
+		}
+		&--formlike{
+			@extend .form-control__group;
+			position: relative;
+			table-layout: fixed;
+			.form-control{
+				&__file{
+					&__btn{
+						@extend .form-control__group__addon;
+						background: $color_main_regular;
+						border-color: $color_main_regular;
+						color: $color_white;
+						width: 30%;
+					}
+					&__text{
+						@extend .form-control__field;
+						width: 70%;
+					}
+				}
+			}
+		}
+	}
+
+	&__legend{
+		font-weight: $weight_bold;
+	}
+
+	//////// Modifiers
+	&--invalid {
+		color: map-get(map-get($colors_map, danger), regular);
+		.form-control__field{
+			border-color: map-get(map-get($colors_map, danger), regular);
+			color: map-get(map-get($colors_map, danger), regular);
+		}
+		// error messages only if available
+		&[data-error-message] {
+			&::after {
+				content: attr(data-error-message);
+				display: block;
+				margin: .25rem 0 0;
+				font-size: .875rem;
+				font-weight: bold;
+			}
+		}
+	}
+
+	&--valid {
+		color: map-get(map-get($colors_map, success), regular);
+		.form-control__text,.form-control__field{
+			color: map-get(map-get($colors_map, success), regular);
+		}
+		.form-control__field{
+			border-color: map-get(map-get($colors_map, success), regular);
+		}
+	}
+}
+
+// extra elements
+.form-switch {
+	display: inline-block;
+	vertical-align: middle;
+	padding: 0 .5em;
+	cursor: pointer;
+
+	// Elements
+	input { display: none; }
+
+	&__label {
+		font-size: map-get($text_sizes, small);
+	}
+	
+	&__input, &__label {
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	&__input {
+		height: 1em;
+		width: 1em;
+		border: 1px solid map-get(map-get($colors_map, grey), lighter);
+		background: $color_white;
+		position: relative;
+		transition: $base_transition;
+
+		&::before {
+			content: "";
+			display: block;
+			height: 1em;
+			width: 1em;
+			position: absolute;
+			top: -1px;
+			left: -1px;
+		}
+
+		:checked + & {
+			border-color: map-get(map-get($colors_map, main), regular);
+			background: map-get(map-get($colors_map, main), regular);
+		}
+
+		// modifiers
+		&--checkbox {
+			border-radius: $base_border_radius;
+			
+			:checked + & {
+				&::before {
+					background: url($images_path + '/icons-light/ic_check.svg') 50% 50% no-repeat;
+					background-size: contain;
+				}
+			}
+		}
+
+		&--radio {
+			border-color: map-get(map-get($colors_map, grey), light);
+			border-radius: 100%;
+
+			&::before {
+				border-radius: 100%;
+				transform: scale(0);
+				background: $color_white;
+				transition: $base_transition;
+			}
+
+			:checked + & {
+				&::before { transform: scale(.5); }
+			}
+		}
+
+		&--toggle {
+			border-radius: 1em;
+			width: 3em;
+			background: map-get(map-get($colors_map, grey), lighter);
+			border: 1px solid map-get(map-get($colors_map, grey), light);
+
+			&::before {
+				border-radius: 1em;
+				background: $color_white;
+				border: 1px solid map-get(map-get($colors_map, grey), regular);
+				transform: translateX(0);
+				transition: $base_transition;
+			}
+
+			:checked + & {
+				background: map-get(map-get($colors_map, main), regular) url($images_path + '/icons-light/ic_pause.svg') .5em 50% no-repeat;
+				background-size: contain;
+
+				&::before {
+					transform: translateX(2em);
+					border-color: map-get(map-get($colors_map, main), dark);
+				}
+			}
+		}
+	}
+
+	&:hover {
+		.form-switch__input {
+			border-color: map-get(map-get($colors_map, main), regular);
+		}
+	}
+
+	// Modifiers
+	&--block {
+		display: block;
+		padding: .5em 0;
+	}
+}
+
+
+
+
+
+

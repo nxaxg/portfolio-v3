@@ -1,0 +1,81 @@
+.single{
+	//HEADER
+	&__header{
+		margin: 2rem 0;
+		@include media (tablet-down){
+			padding: 0 .5rem;
+		}
+	}
+	&__meta{
+		font-size: $size_small;
+		a{
+			color: $color_secondary_regular;
+		}
+	}
+	&__title{
+		font-size: 2rem;
+		line-height: 2.5rem;
+		margin: 1rem 0;
+		&--serif{
+			font-family: $font_serif;
+		}
+		&--italic{
+			font-family: $font_serif;
+			font-style: italic;
+		}
+		@include media (tablet-down){
+			font-size: 1.5rem;
+			line-height: 1.75rem;
+		}
+	}
+	&__info{
+		font-size: $size_small;
+		color: $color_grey_regular;
+	}
+	&__author{
+		color: $color_secondary_regular;
+	}
+
+	//CONTENT
+	&__thumbnail{
+		margin: 0 0 1rem;
+	}
+	&__excerpt{
+		font-size: 1rem;
+		line-height: $size_avg;
+		margin: 0 0 1rem;
+		&::first-letter{
+			font-size: 3rem;
+			@include media (tablet-down){
+				font-size: 1.5rem;
+			}
+		}
+		p{
+			margin: 0 0 1rem;
+			&:last-child{
+				margin: 0;
+			}
+		}
+	}
+	//THE CONTENT
+	&__content{
+		font-size: $size_small;
+		line-height: $size_twenty;
+		margin: 0;
+		p{
+			margin: 0 0 1rem;
+			&:last-child{
+				margin: 0;
+			}
+		}
+		blockquote{
+			margin: 1.5rem 0 2rem;
+			font-weight: $weight_light;
+			font-size: 1.5rem;
+			line-height: 2rem;
+		}
+		ul,:only-child{
+			margin: 1rem 0;
+		}
+	}
+}

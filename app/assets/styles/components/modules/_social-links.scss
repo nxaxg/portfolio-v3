@@ -1,0 +1,55 @@
+.social-link {
+	@include image-replacement;
+	display: inline-block;
+	vertical-align: middle;
+	text-align: center;
+	padding: .5rem;
+	margin: 0 .25rem;
+	border-radius: $base_border_radius;
+	transition: $base_transition;
+	
+	&::before {
+		@extend %icon-font-family;
+		content: "";
+		font-size: map-get($text_sizes, big);
+		display: inline-block;
+		vertical-align: middle;
+		color: $color_white;
+	}
+
+	&--round {
+		border-radius: 100%;
+	}
+
+	// posibilities depend on the configuration map
+	@each $type, $color in $social_colors_map {
+		&--#{$type} {
+			&:not([class*="--ghost"]) {
+				$the_color: $color;
+
+				@if $type == instagram {
+					$the_color: $instagram_gradient;
+				}
+
+				background: $the_color;
+				&:hover { 
+					background: $color_grey_light;
+					&::before { color: $color; }
+				}
+			}
+			
+			&[class*="--ghost"] {
+				border: 1px solid $color;
+				&::before { color: $color; }
+				
+				&:hover { 
+					border-color: $color_grey_light;
+				}
+			}
+
+			&::before {
+				content: map-get($social_icons_map, $type);
+			}
+		}
+	}
+}

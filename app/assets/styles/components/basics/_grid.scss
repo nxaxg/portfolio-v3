@@ -1,0 +1,41 @@
+@import '../gridle/gridle-flex';
+
+// general settings
+@include gridle_setup((
+	context : 12,
+	gutter-width: 1rem,
+	gutter-top: .5rem,
+	gutter-bottom: .5rem,
+	classes-prefix: ''
+));
+
+@include gridle_register_state(large, (
+	max-width: $large
+));
+
+@include gridle_register_state(medium, (
+	max-width: $medium
+));
+
+@include gridle_register_state(tablet, (
+	max-width: $tablet
+));
+
+@include gridle_register_state(small, (
+	max-width: $small
+));
+
+@include gridle_register_state(phablet, (
+	max-width: $phablet
+));
+
+@include gridle_generate_classes();
+
+//
+// $x: 0;
+// @while($x<=12){
+// 	.gridle-gr-#{$x}{
+// 		padding: .5rem;
+// 	}
+// 	$x: $x+1;
+// }

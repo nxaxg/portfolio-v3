@@ -1,0 +1,74 @@
+.message {
+	display: block;
+	width: 100%;
+	margin: 1rem 0;
+	padding: .75rem 3rem .75rem 1rem;
+	font-style: map-get($text_sizes, small);
+	color: $color_white;
+	position: relative;
+	border-radius: $base_border_radius;
+
+	// bg modifiers
+	@each $type, $colors in $colors_map {
+		&--#{$type} { background: map-get($colors, regular); }
+		&--ghost-#{$type} {
+			color: map-get($colors, regular);
+			background: transparent;
+			border: 1px solid map-get($colors, regular);
+
+			.message__close-button {
+				&::before, &::after {
+					background: map-get($colors, regular);
+				}
+			}
+		}
+	}
+	
+	// Elements
+	&__body {
+		p {
+			margin: 0;
+			+ p { margin-top: 1em; }
+		} 
+	} 
+
+	&__close-button {
+		@include reset-appearance;
+
+		$square_size: map-get($text-sizes, medium);
+		$half_size: $square_size/2;
+
+		display: block;
+		width: $square_size;
+		height: $square_size;
+		position: absolute;
+		top: 50%;
+		right: 1rem;
+		margin-top: $half_size * -1;
+		background: transparent;
+		transform: scale(1) rotateZ(0);
+		transition: $base_transition;
+
+		&::before, &::after {
+			content: "";
+			display: block;
+			position: absolute;
+			background: $color_white;
+			width: 100%;
+			height: 2px;
+			top: 50%;
+			left: 0;
+			margin-top: -1px;
+			transition: $base_transition;
+		}
+
+		&::before { transform: rotateZ(45deg); }
+		&::after { transform: rotateZ(-45deg); }
+
+		&:hover { 
+			&::before { transform: rotateZ(0); }
+			&::after { transform: rotateZ(0); }
+		}
+		&:active { transform: scale(.8); }
+	}
+}

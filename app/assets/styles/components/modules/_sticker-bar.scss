@@ -1,0 +1,16 @@
+.header-bar{
+	&.sticker{
+		.top-bar{
+			height: 0;
+			overflow: hidden;
+			padding: 0;
+			@include transitional;
+		}
+		.nav-bar{
+			padding: 0;
+			background-image: $color_grey_regular;
+			box-shadow: 0 .25rem 1rem $color_grey_light;
+			@include transitional;
+		}
+	}
+}

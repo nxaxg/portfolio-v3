@@ -1,0 +1,403 @@
+////////////////////////////////////////
+//////////////////////////////////////// Funciones
+////////////////////////////////////////
+@function strip-unit($number) {
+	@if type-of($number) == 'number' and not unitless($number) {
+		@return $number / ($number * 0 + 1);
+	}
+
+	@return $number;
+}
+
+@function get-color( $type, $shade ){
+	@return map-get(map-get($colors_map, $type), $shade);
+}
+
+@mixin get-icon($icon){
+	content: $icon;
+	font-family: $ketchup;
+	@include transitional;
+}
+
+////////////////////////////////////////
+//////////////////////////////////////// Utilitarios
+////////////////////////////////////////
+@mixin image-replacement {
+	font-size: 0;
+	line-height: 0;
+	color: transparent;
+	font-family: a;
+}
+
+@mixin reset-appearance {
+	-webkit-appearance: none;
+	-ms-appearance: none;
+	appearance: none;
+	background: transparent;
+	border-radius: 0;
+	line-height: 1;
+	border: 0;
+	outline: 0;
+	padding: 0;
+}
+
+@mixin remove-select-arrow {
+	text-indent: 0.01px;
+	text-overflow: '';
+	&::-ms-expand { display: none; }
+}
+
+@mixin placeholder {
+	&::-webkit-input-placeholder { @content; }
+	&::-moz-placeholder { @content; }
+	&::-ms-input-placeholder { @content; }
+}
+
+@mixin range-track {
+	&::-webkit-slider-runnable-track { @content; }
+	&::-moz-range-track { @content; }
+	&::-ms-track { @content; }
+}
+
+@mixin range-thumb {
+	&::-webkit-slider-thumb { @content; }
+	&::-moz-range-thumb{ @content; }
+	&::-ms-thumb { @content; }
+}
+
+@mixin table{
+	margin: $size_half 0;
+	th{
+		background-color: $color_grey_lightest !important;
+		color: $color_grey_darker !important;
+		font-weight: $weight_bold !important;
+		@include media (tablet-down){
+			min-width: 10rem !important;
+		}
+	}
+	th, tr, td, thead, tbody{
+		border: none !important;
+	}
+	th, td{
+		padding: 1rem !important;
+		font-size: $size_short !important;
+	}
+	tbody{
+		tr, td{
+			font-weight: $weight_light !important;
+		}
+		tr:nth-child(even){
+			background-color: $color_grey_lightest !important;
+		}
+		tr:nth-child(odd){
+			background-color: $color_white !important;
+		}
+	}
+}
+
+@mixin transitional{
+	@include ease-transition(.4s);
+}
+@mixin relax{
+	@include ease-transition(1s);
+}
+@mixin divider-btm{
+	border-bottom: 1px solid $color_grey_light;
+}
+@mixin ease-transition($secs){
+	-webkit-transition: ease $secs;
+    -ms-transition: ease $secs;
+	-moz-transition: ease $secs;
+    transition: ease $secs;
+}
+@mixin rotate-y($howmuch){
+	-webkit-transform: rotateY($howmuch);
+    -ms-transform: rotateY($howmuch);
+	-moz-transform: rotateY($howmuch);
+    transform: rotateY($howmuch);
+}
+@mixin rotate-x($howmuch){
+	-webkit-transform: rotateX($howmuch);
+    -ms-transform: rotateX($howmuch);
+	-moz-transform: rotateX($howmuch);
+	transform: rotateX($howmuch);
+	@include transitional;
+}
+@mixin scale{
+	-webkit-transform: scale(1.025);
+    -ms-transform: scale(1.025);
+	-moz-transform: scale(1.025);
+    transform: scale(1.025);
+}
+@mixin scaleme($x){
+	-webkit-transform: scale($x);
+    -ms-transform: scale($x);
+	-moz-transform: scale($x);
+    transform: scale($x);
+}
+@mixin overland{
+	position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+	background: rgba($color_ciper_black, .25);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: $size_avg;
+}
+@mixin overthumb{
+	position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+	background: rgba($color_ciper_black, 1);
+    display: flex;
+    padding: $size_regular;
+}
+@mixin relathumb{
+	position: relative;
+    width: 100%;
+	background: rgba($color_ciper_black, 1);
+    display: flex;
+    padding: $size_regular;
+}
+@mixin border-shadow{
+	content: "";
+    position: absolute;
+    width: 98%;
+    right: 1%;
+    bottom: 0;
+    height: 20px;
+    // z-index:-1;
+    -moz-box-shadow: inset 1px -10px 2px -10px $color_ciper_gray;
+    -webkit-box-shadow: inset 1px -10px 2px -10px $color_ciper_gray;
+    box-shadow: inset 1px -10px 2px -10px $color_ciper_gray;
+}
+@mixin overlay($color, $alpha){
+	&:after{
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background: rgba($color, $alpha);
+		z-index: -1;
+	}
+}
+@mixin flex-column{
+	display: flex;
+	flex-direction: column;
+}
+@mixin flex-row{
+	display: flex;
+	flex-direction: row;
+}
+@mixin flex-fill{
+	@include flex-column;
+	align-content: stretch;
+}
+@mixin flex-col-center-start{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+}
+@mixin flex-col-center-all{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+@mixin flex-col-start-end{
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-end;
+}
+@mixin placeholder-color($color){
+	&::placeholder,
+	&::-webkit-input-placeholder,
+	&::-moz-placeholder,
+	&:-ms-input-placeholder,
+	&:-moz-placeholder{
+		color: $color;
+	}
+}
+
+// @mixin input-bg($icon){
+
+// }
+
+////////////////////////////////////////
+//////////////////////////////////////// Media/Element Queries
+////////////////////////////////////////
+
+@mixin media( $type ){
+	@if $type == huge-up {
+		@media only screen and (min-width: $huge+1) { @content; }
+	}
+	@if $type == huge-down {
+		@media only screen and (max-width: $huge) { @content; }
+	}
+
+	@if $type == extra-large-up {
+		@media only screen and (min-width: $extra_large+1) { @content; }
+	}
+	@if $type == extra-large-down {
+		@media only screen and (max-width: $extra_large) { @content; }
+	}
+
+	@if $type == large-up {
+		@media only screen and (min-width: $large+1) { @content; }
+	}
+	@if $type == large-down {
+		@media only screen and (max-width: $large) { @content; }
+	}
+	@if $type == midlarge-up {
+		@media only screen and (min-width: $midlarge+1) { @content; }
+	}
+	@if $type == midlarge-down {
+		@media only screen and (max-width: $midlarge) { @content; }
+	}
+
+	@if $type == medium-up {
+		@media only screen and (min-width: $medium+1) { @content; }
+	}
+	@if $type == medium-down {
+		@media only screen and (max-width: $medium) { @content; }
+	}
+
+	@if $type == tablet-up {
+		@media only screen and (min-width: $tablet+1) { @content; }
+	}
+	@if $type == tablet-down {
+		@media only screen and (max-width: $tablet) { @content; }
+	}
+
+	@if $type == small-up {
+		@media only screen and (min-width: $small+1) { @content; }
+	}
+	@if $type == small-down {
+		@media only screen and (max-width: $small) { @content; }
+	}
+
+	@if $type == phablet-up {
+		@media only screen and (min-width: $phablet+1) { @content; }
+	}
+	@if $type == phablet-down {
+		@media only screen and (max-width: $phablet) { @content; }
+	}
+
+	@if $type == extra-small-up {
+		@media only screen and (min-width: $extra_small+1) { @content; }
+	}
+	@if $type == extra-small-down {
+		@media only screen and (max-width: $extra_small) { @content; }
+	}
+}
+
+$black_05: rgba($color_black, .05);
+$black_10: rgba($color_black, .1);
+$black_15: rgba($color_black, .15);
+$black_25: rgba($color_black, .25);
+$black_50: rgba($color_black, .5);
+$black_75: rgba($color_black, .75);
+$black_90: rgba($color_black, .9);
+
+@mixin black-gradient{
+    background: $black_50; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient($black_10, $black_10, $black_15, $black_15, $black_25, $black_50, $black_50, $black_75, $black_90); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient($black_10, $black_10, $black_15, $black_15, $black_25, $black_50, $black_50, $black_75, $black_90); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient($black_10, $black_10, $black_15, $black_15, $black_25, $black_50, $black_50, $black_75, $black_90); /* For Firefox 3.6 to 15 */
+    background: linear-gradient($black_10, $black_10, $black_15, $black_15, $black_25, $black_50, $black_50, $black_75, $black_90);    
+}
+
+@mixin height-animate{
+	-moz-animation: heightness .5s ease .5s forwards;
+	-webkit-animation: heightness .5s ease .5s forwards;
+	-o-animation: heightness .5s ease .5s forwards;
+	-ms-animation: heightness .5s ease .5s forwards;
+	animation: heightness .5s ease .5s forwards;
+}
+
+@-moz-keyframes heightness /* Firefox */{
+	from {height: 0%;}
+	to {height: 100%;}
+}
+@-webkit-keyframes heightness {
+  from {height: 0%;}
+  to {height: 100%;}
+}
+@-o-keyframes heightness {
+  from {height: 0%;}
+  to {height: 100%;}
+}
+@-ms-keyframes heightness {
+  from {height: 0%;}
+  to {height: 100%;}
+}
+@keyframes heightness {
+  from {height: 0%;}
+  to {height: 100%;}
+}
+
+@mixin video-animate{
+	-moz-animation: slide .5s ease .5s forwards;
+	-webkit-animation: slide .5s ease .5s forwards;
+	-o-animation: slide .5s ease .5s forwards;
+	-ms-animation: slide .5s ease .5s forwards;
+	animation: slide .5s ease .5s forwards;
+}
+
+@-moz-keyframes slide /* Firefox */{
+	from {height: 100%;}
+	to {height: -100%;}
+}
+@-webkit-keyframes slide {
+  from {height: 100%;}
+  to {height: -100%;}
+}
+@-o-keyframes slide {
+  from {height: 100%;}
+  to {height: -100%;}
+}
+@-ms-keyframes slide {
+  from {height: 100%;}
+  to {height: -100%;}
+}
+@keyframes slide {
+  from {height: 100%;}
+  to {height: -100%;}
+}
+
+@mixin video-animateauto{
+	-moz-animation: slideauto .5s ease .5s forwards;
+	-webkit-animation: slideauto .5s ease .5s forwards;
+	-o-animation: slideauto .5s ease .5s forwards;
+	-ms-animation: slideauto .5s ease .5s forwards;
+	animation: slideauto .5s ease .5s forwards;
+}
+
+@-moz-keyframes slideauto /* Firefox */{
+	from {height: auto;}
+	to {height: -100%;}
+}
+@-webkit-keyframes slideauto {
+  from {height: auto;}
+  to {height: -100%;}
+}
+@-o-keyframes slideauto {
+  from {height: auto;}
+  to {height: -100%;}
+}
+@-ms-keyframes slideauto {
+  from {height: auto;}
+  to {height: -100%;}
+}
+@keyframes slideauto {
+  from {height: auto;}
+  to {height: -100%;}
+}

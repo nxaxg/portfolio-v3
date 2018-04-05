@@ -1,0 +1,131 @@
+//////////////////////////////////
+////////////////////////////////// Base
+//////////////////////////////////
+html {
+    font-family: $base_sans_font_family;
+    font-size: $base_font_size;
+    line-height: $base_line_height;
+    color: $color_dark;
+    background: map-get( map-get($colors_map, grey), lightest );
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: subpixel-antialiased;
+}
+
+
+//////////////////////////////////
+////////////////////////////////// Form elements
+//////////////////////////////////
+input,
+button,
+select,
+textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+
+//////////////////////////////////
+////////////////////////////////// Typography
+//////////////////////////////////
+a {
+    color: map-get( map-get($colors_map, main), regular );
+    text-decoration: none;
+
+    &:hover, &:focus {
+        color: map-get( map-get($colors_map, main), dark );
+        text-decoration: underline;
+        @include transitional;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    display: block;
+    margin: 0 0 1rem 0;
+    font-weight: bold;
+    line-height: $headings_line_height;
+
+    &:not(:first-child):not([class*="__title"]) { margin-top: 1em; }
+}
+
+h1 { font-size: map-get($text_sizes, huge); }
+h2 { font-size: map-get($text_sizes, taller); }
+h3 { font-size: map-get($text_sizes, tall); }
+h4 { font-size: map-get($text_sizes, bigger); }
+h5 { font-size: map-get($text_sizes, big); }
+h6 { font-size: map-get($text_sizes, medium); }
+
+p {
+    display: block;
+    margin: 1em 0 0 0;
+    &:first-child { margin-top: 0; }
+}
+
+ul, ol {
+    margin: 1em 0;
+    padding-left: 2em;
+    li { margin: .5em 0; }
+}
+
+blockquote {
+    display: block;
+    margin: 1em 0 1em 1em; 
+    padding: 0 0 0 1em;
+    border-left: $base_border_radius solid map-get(map-get($colors_map, grey), light);
+    font-family: $base_serif_font_family;
+    font-size: map-get($text_sizes, medium);
+}
+
+code {
+    padding: .125rem .25rem;
+    font-size: 90%;
+    color: map-get(map-get($colors_map, secondary), dark);
+    background-color: map-get(map-get($colors_map, grey), lightest);
+    border-radius: $base_border_radius; 
+}
+
+
+
+//////////////////////////////////
+////////////////////////////////// Blocks
+//////////////////////////////////
+table {
+    width: 100%;
+    margin: 1.5em 0;
+    border-collapse: collapse;
+    font-size: $td_font_size;
+    line-height: $td_line_height;
+    color: $td_color;
+
+    &:last-child { margin-bottom: 0; } 
+
+    thead { background: $th_bg; }
+
+    th {
+        padding: $th_font_size;
+        background: $th_bg;
+        font-size: $th_font_size;
+        font-weight: $th_font_weight;
+        color: $th_color;
+        text-align: $th_align;
+    }
+
+    td {
+        padding: $td_font_size;
+        border: 0;
+    }
+
+    tr {
+        &:nth-child(even) { background: $tr_bg; }
+    }
+
+    // bg-color modifiers
+    td, tr {
+        @each $type, $colors in $colors_map {
+            &.bg-#{$type} {
+                color: $color_grey_darkest;
+                background: rgba( map-get($colors, regular), .2);
+            }
+        }
+    }
+}

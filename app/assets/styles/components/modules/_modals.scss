@@ -1,0 +1,59 @@
+.modal {
+	display: block;
+	width: 100%;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba( get-color( grey, darkest ), 0 );
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+	transition: all 700ms ease;
+
+	&__body {
+		touch-action: pan-y;
+		display: block;
+		width: 100%;
+	}
+
+	&__content {
+		display: block;
+		max-width: 70%;
+		margin: 5% auto;
+		background: $color_white;
+		position: relative;
+		border-radius: $base_border_radius;
+		box-shadow: 0 0 0 rgba( get-color( grey, darkest ), .35 );
+		transform: translateY(4rem);
+		opacity: 0;
+		transition: all 700ms ease;
+
+		&.loaded {
+			box-shadow: 0 0 1rem rgba( get-color( grey, darkest ), .35 );
+			transform: translateY(0);
+			opacity: 1;
+		}
+	}
+	&__button{
+		right: 15%;
+		top: 10%;
+		z-index: 1;
+		position: absolute;
+		background: $color_secondary_regular;
+		color: $color_white;
+		border-radius: 0;
+		border: none;
+		font-size: 1.5rem;
+		width: 3rem;
+		height: 3rem;
+		&:after{
+			@include get-icon($icon-close);
+		}
+	}
+
+	&--loaded {
+		background: rgba( get-color( grey, darkest ), .9 );
+	}
+}
