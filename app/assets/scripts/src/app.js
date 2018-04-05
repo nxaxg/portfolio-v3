@@ -90,6 +90,7 @@
 			
 			this.initCleanSpace();
 			this.initValidFile();
+			this.initSubmitOnChange();
 		},
 		onLoad : function(){
             var app = this;
@@ -105,6 +106,15 @@
             if( $('[data-role="scroll-navigation"]').length ){
                 this.scrollNavigation( $('[data-role="scroll-navigation"]') );
             }
+
+            if( document.querySelector('[data-masonry-grid]') ){
+                throttle(function(){
+                    app.masonry = new Masonry( document.querySelector('[data-masonry-grid]'), {
+                        itemSelector: '.masonry-item',
+                        percentPosition: true
+                    });
+                });
+            }
 			
             $window.trigger('resize');
         },
@@ -112,7 +122,7 @@
             // voy a asumir que cualquier browser que no soporte <canvas> es un oldIE (IE8-)
             if( Modernizr.canvas ){ return false; }
             Modernizr.load({
-                load : this.path + 'scripts/support/selectivizr.min.js'
+                load : this.path + 'dist/scripts/support/selectivizr.min.js'
             });
         },
 		autoHandleEvents : function( $elements ){
@@ -191,7 +201,12 @@
 
 			if( $('[data-role="videothumb"]').length ){
                 this.videohide( $('[data-role="videothumb"]') );
-			}
+            }
+            
+            // si no reconoces matchmedia no mereces enquire
+            if( window.matchMedia ){
+                this.setEnquire();
+            }
 		
 		},
 
@@ -275,6 +290,9 @@
                 var $el = $(el),
                     $target = $( $el.attr('href') ),
                     targetOffset = $target.offset();
+
+                console.log('target: ' + $target);
+                console.log('offset: ' + targetOffset);
 
                 targetOffset.bottom = targetOffset.top + $target.height();
 
@@ -638,16 +656,72 @@
 
         tabControl : function( event ){
             event.preventDefault();
-
             var $button = $(event.currentTarget),
                 $target = $('[data-tab-name="'+ $button.data('target') +'"]');
 
             $button.siblings().removeClass('active');
             $target.siblings().removeClass('active');
-
+            
             throttle(function(){
                 $button.addClass('active');
                 $target.addClass('active');
+            });
+        },
+
+        collapseControl : function( event ){
+            event.preventDefault();
+
+            var $button = $(event.currentTarget),
+                $target = $('[data-target-name="'+ $button.data('target') +'"]');
+
+            throttle(function(){
+                $button.toggleClass('active');
+                $target.toggleClass('active');
+            });
+        },
+
+        targetAdd : function( event ){
+            event.preventDefault();
+
+            var $button = $(event.currentTarget),
+                $target = $('[data-target-name="'+ $button.data('target') +'"]');
+
+            throttle(function(){
+                $target.addClass('active');
+            });
+        },
+
+        targetRemove : function( event ){
+            event.preventDefault();
+
+            var $button = $(event.currentTarget),
+                $target = $('[data-target-name="'+ $button.data('target') +'"]');
+
+            throttle(function(){
+                $target.removeClass('active');
+            });
+        },
+
+        lazyLoad : function(event){
+            event.preventDefault();
+            var $button = $(event.currentTarget),
+                $transition = $button.data('transition');
+
+            throttle(function(){
+                $button.toggleClass('active');
+            });
+        },
+
+        miniMenu : function( event ){
+            event.preventDefault();
+
+            var $button = $(event.currentTarget),
+                $menu = $('[data-menu]');
+
+            throttle(function(){
+                $body.toggleClass('noscroll');
+                $button.toggleClass('deployed').parent().toggleClass('deployed');
+                $menu.toggleClass('deployed');
             });
         },
 
@@ -765,7 +839,17 @@
 					this.value = this.value.replace(/\s/g, "");
 				}
 			});
-		},
+        },
+        
+        initSubmitOnChange : function(){
+            $('[data-onchange]').change(function(e){
+                var $input = $(this),
+                    $form = $input.parents('form');
+
+                e.preventDefault();
+                $form.submit();
+            });
+        },
 
 		initValidFile: function(){
 			$('[data-validfile]').change(function(e){
